@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# CocoaPods
+Pods/
+
+# User settings
+xcuserdata/
+
+# User secrets
+Local.xcconfig
