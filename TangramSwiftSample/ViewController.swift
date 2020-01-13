@@ -34,16 +34,18 @@ class ViewController: UIViewController, TGMapViewDelegate, TGRecognizerDelegate 
         mapView.loadSceneAsync(from: sceneUrl, with: sceneUpdates)
     }
 
-    func mapViewDidCompleteLoading(_ mapView: TGMapView) {
-        print("MapView did complete loading")
+    func mapView(_ mapView: TGMapView, didLoadScene sceneID: Int32, withError sceneError: Error?) {
+        if let error = sceneError {
+            print("Scene load error: \(error.localizedDescription)")
+        }
 
         let newYork = CLLocationCoordinate2DMake(40.70532700869127, -74.00976419448854)
-
         mapView.cameraPosition = TGCameraPosition(center: newYork, zoom: 15, bearing: 0, pitch: 0)
     }
 
     func mapView(_ view: TGMapView!, recognizer: UIGestureRecognizer!, didRecognizeSingleTapGesture location: CGPoint) {
-        print("Tap gesture at location: \(location.x), \(location.y)")
+        let coordinate = view.coordinate(fromViewPosition: location)
+        print("Tapped location: \(coordinate.longitude), \(coordinate.latitude)")
     }
 }
 
