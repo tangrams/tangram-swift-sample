@@ -6,5 +6,5 @@ target 'TangramSwiftSample' do
   use_frameworks!
 
   # Pods for TangramSwiftSample
-  pod 'Tangram-es', '~> 0.11'
+  pod 'Tangram-es', '~> 0.12.0'
 end
